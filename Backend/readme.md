@@ -31,3 +31,6 @@ npm i jsonwebtoken
 
 ## Obtener y ver las cookies (Middleware que lo convierte a JSON)
 npm i cookie-parser
+
+## zod validator (Validaciones) 
+npm i zod
