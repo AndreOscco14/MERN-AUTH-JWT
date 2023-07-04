@@ -6,8 +6,8 @@ const router = Router()
 
 router.get('/tasks', authRequired, getTasks)
 router.get('/task/:id', authRequired, getTask)
-router.post('/tasks',authRequired, createTask)
-router.delete('/tasks/:id', authRequired, deleteTask)
-router.put('/tasks/:id', authRequired, updateTask)
+router.post('/task',authRequired, createTask)
+router.delete('/task/:id', authRequired, deleteTask)
+router.put('/task/:id', authRequired, updateTask)
 
 export default router
