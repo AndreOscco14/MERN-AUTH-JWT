@@ -7,3 +7,5 @@ const tasksSchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
+
+export default mongoose.model('Task', tasksSchema)
