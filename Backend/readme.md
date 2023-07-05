@@ -34,3 +34,6 @@ npm i cookie-parser
 
 ## zod validator (Validaciones) 
 npm i zod
+
+## npm i cors (Conexion Front Error)
+npm i cors

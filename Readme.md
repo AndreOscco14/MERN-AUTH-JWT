@@ -28,3 +28,6 @@ npm install react-router-dom
 
 ## Usando React Hook Form (permite poder decir a React que tengo un Form (cambio de estado))
 npm install react-hook-form
+
+## Axios (engloba Fetch)
+npm i axios
