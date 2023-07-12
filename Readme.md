@@ -31,3 +31,6 @@ npm install react-hook-form
 
 ## Axios (engloba Fetch)
 npm i axios
+
+## Leer las Cookies del front
+npm i js-cookie
