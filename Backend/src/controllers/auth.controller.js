@@ -95,10 +95,10 @@ export const verify = async (req, res) => {
     const {token} = req.cookies
 
     if(!token) return res.status(401).json({ message: "SIN AUTORIZACION!"})
-    jwt.verify(token, TOKEN_SECRET, (err, user) => {
+    jwt.verify(token, TOKEN_SECRET, async (err, user) => {
         if(err) return res.status(401).json({message: "SIN AUTORIZACION!"});
 
-      const userFound =  User.findById(user.id)
+      const userFound = await User.findById(user.id)
       if(!userFound) return res.status(401).json({message: "Sin autorizacion"})
 
       return res.json({

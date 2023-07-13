@@ -72,7 +72,7 @@ export const AuthProvider = ({children}) => {
                 setIsAuthenticated(false)
                 setUser(null)
             }
-        // 
+        // 3:23:50
      }
      checkLogin()
     }, [])
