@@ -13,15 +13,19 @@ export const useTasks = () => {
     return context;
 }
 
-// Contenedor de todos los componentes que quieren acceder
 export function TaskProvider({ children }) {
 
     const [tasks, setTasks] = useState([]);
 
     const createTask = async (task) => {
-        const res = await createTaskRequest(task)
-        console.log(res)
-    }
+        try {
+          const res = await createTaskRequest(task);
+          console.log(res);
+        } catch (error) {
+          console.log("ERRORRR",error);
+        }
+      };
+      
 
     return(
         <TaskContext.Provider value={{tasks, createTask}}>
