@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 const TaskContext = createContext();
 
@@ -14,8 +14,15 @@ export const useTasks = () => {
 
 // Contenedor de todos los componentes que quieren acceder
 export function TaskProvider({ children }) {
+
+    const [tasks, setTasks] = useState([]);
+
+    const createTask = (task) => {
+        console.log('Taskss')
+    }
+
     return(
-        <TaskContext.Provider value={{}}>
+        <TaskContext.Provider value={{tasks, createTask}}>
              {children}
         </TaskContext.Provider>
     )
