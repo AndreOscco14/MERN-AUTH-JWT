@@ -26,8 +26,6 @@ function App() {
           <Route path='/tasks/:id' element= {<TasksFormPage/>} />
           <Route path='/profile' element= {<ProfilePage/>} />
         </Route>
-
-
       </Routes>
     </BrowserRouter>
 </AuthProvider>
