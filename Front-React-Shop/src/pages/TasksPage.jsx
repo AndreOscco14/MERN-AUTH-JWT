@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react'
-import { useAuth } from '../context/AuthContext'
-// import { useTasks } from '../context/TasksContext';
+import { useEffect } from 'react'
+import { useTasks } from '../context/TasksContext';
 
 function TasksPage() {
-    // const { getTasks } = useTasks()
-    // useEffect(() => {
-    //   getTasks()
-    // }, [])
+    const { getTasks, tasks } = useTasks()
 
-    const {user} = useAuth()
-    console.log("Usuario:", user);
+    useEffect(() => {
+      getTasks()
+    }, [])
 
-      return (
-        <div>TasksPage</div>
-      )
+
+    if(tasks.length === 0) return (<h1>No Tasks</h1>)
+
+    return (
+      <div>
+        {
+          tasks.map((task) => (
+            <div key={task._id}>
+              <h1>{task.title}</h1>
+              <h1>{task.description}</h1>
+            </div>
+          ))
+        }
+      </div>
+    )
     }
 
-export default TasksPage
+export default TasksPage;
