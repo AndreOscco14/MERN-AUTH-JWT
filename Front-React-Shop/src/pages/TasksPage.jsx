@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react'
-import { useTasks } from '../context/TasksContext';
+import { useAuth } from '../context/AuthContext'
+// import { useTasks } from '../context/TasksContext';
 
 function TasksPage() {
-    const { getTasks } = useTasks()
+    // const { getTasks } = useTasks()
+    // useEffect(() => {
+    //   getTasks()
+    // }, [])
 
-    useEffect(() => {
-      getTasks()
-    }, [])
+    const {user} = useAuth()
+    console.log("Usuario:", user);
 
       return (
         <div>TasksPage</div>

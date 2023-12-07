@@ -8,7 +8,7 @@ export const AuthContext = createContext()
 export const useAuth = () => {
    const context =  useContext(AuthContext);
    if(!context){
-    throw new Error("UserAuth mus be used within an AuthProvider")
+    throw new Error("UserAuth must be used within an AuthProvider")
    }
    return context
 }
@@ -22,7 +22,7 @@ export const AuthProvider = ({children}) => {
     const signup = async (user) => {
         try {
             const res = await registerRequest(user)
-            console.log("AUTH PROVIDERR",res.data)
+            console.log("AUTH PROVIDERR",res)
             setUser(res.data)
             setIsAuthenticated(true)
         } catch (error) {
@@ -63,7 +63,6 @@ export const AuthProvider = ({children}) => {
                 setLoading(false)
                 return setUser(null)
             }
-
             try {
                const res =  await verifyTokenRequest(cookies.token);
                if(!res.data){
@@ -71,7 +70,6 @@ export const AuthProvider = ({children}) => {
                   setLoading(false)
                   return
                 }
-
                setIsAuthenticated(true)
                setUser(res.data)
                setLoading(false)
@@ -79,7 +77,6 @@ export const AuthProvider = ({children}) => {
                 setIsAuthenticated(false)
                 setUser(null)
                 setLoading(false)
-
             }
      }
      checkLogin()

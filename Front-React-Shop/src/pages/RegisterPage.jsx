@@ -19,6 +19,7 @@ function RegisterPage() {
     }, [isAuthenticated])
 
     const onSubmit = handleSubmit(async (values) => {
+        console.log("VALUES", values);
             signup(values)
         });
 
