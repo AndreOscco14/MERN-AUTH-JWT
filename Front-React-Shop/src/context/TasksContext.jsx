@@ -1,12 +1,17 @@
 import { createContext, useContext, useState } from "react";
-import { createTaskRequest, getTasksRequest, deleteTasksRequest } from "../api/tasks";
+import {
+   createTaskRequest, 
+   getTasksRequest, 
+   deleteTasksRequest,
+   getTaskRequest,
+   updateTasksRequest
+  } from "../api/tasks";
 
 const TaskContext = createContext();
 
 
 export const useTasks = () => {
     const context = useContext(TaskContext);
-
     if(!context){
         throw new Error("useTasks must be used within a TaskProvider");
     }
@@ -22,7 +27,7 @@ export function TaskProvider({ children }) {
         console.log("RES",res.data);
         setTasks(res.data)
       } catch (error) {
-        console.error(error)
+        console.error("ERROR GetTasks",error)
       }
     }
 
@@ -42,7 +47,23 @@ export function TaskProvider({ children }) {
       } catch (error) {
         console.log("ERROR DELETE", error);
       }
+    }
 
+    const getTask = async(id) => {
+      try {
+        const res = await getTaskRequest(id)
+        return res.data
+      } catch (error) {
+        console.log("ERROR GETtask", error);
+      }
+    }
+
+    const updateTask = async (id, task) => {
+      try {
+        await updateTasksRequest(id, task)
+      } catch (error) {
+        console.log("Error", error);
+      }
     }
 
     return(
@@ -51,7 +72,9 @@ export function TaskProvider({ children }) {
             tasks, 
             createTask,
             getTasks,
-            deleteTask
+            deleteTask,
+            getTask,
+            updateTask
            }}
         >
              {children}
