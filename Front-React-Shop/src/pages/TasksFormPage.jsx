@@ -34,15 +34,27 @@ function TasksFormPage() {
   return (
     <div className='bg-zinc-800 max-w-md w-full p-10 rounded-md'>
       <form onSubmit={onSubmit}>
+        <label htmlFor='title'>Title:</label>
         <input 
           type="text" 
           placeholder='Title' 
           {...register("title")} 
           className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
           autoFocus
-          />
-        <textarea rows='3' placeholder='Description' {...register("description")} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'></textarea>
-        <button className='bg-gray-700 px-4 py-1 rounded-lg'>Add</button>
+        />
+        <label htmlFor='description'>Description:</label>
+        <textarea 
+         rows='3'
+         placeholder='Description' 
+         {...register("description")}
+         className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'>
+         </textarea>
+         {/* <label htmlFor='date' className='mr-3'>Date:</label>
+         <input type='date'
+         className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+         {...register('date')}>
+         </input> */}
+         <button className='bg-gray-700 px-4 py-1 mt-4 rounded-lg'>Save</button>
       </form>
     </div>
   )
