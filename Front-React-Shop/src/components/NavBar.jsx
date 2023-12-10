@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+
+import { DarkThemeToggle, Flowbite } from 'flowbite-react';
+import guitarUser from '../assets/guitar.png'
 
 
 function NavBar() {
@@ -10,28 +11,33 @@ function NavBar() {
   const { isAuthenticated, logout, user } = useAuth()
 
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand href="/" className='dark:bg-yellow-300'>
-        <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold ">Flowbite React</span>
+
+    <Navbar  className="mb-5 dark:bg-neutral-900">
+      <Navbar.Brand href="/" className=''>
+        <img  src={guitarUser} className="mr-2 h-12" alt="Flowbite React Logo" />
+        <span className="text-gray-500 self-center whitespace-nowrap dark:text-gray-200 text-xl font-semibold">Flowbite React</span>
       </Navbar.Brand>
 
         {isAuthenticated ? ( 
           <>
+          {/* <img src={guitarUser}/>  */}
           <div className="flex md:order-2">
             <Dropdown
               arrowIcon={false}
               inline
               label={
-                <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+                // guitarUser
+                <Avatar alt="User settings" className="mr-2 " img="https://png.pngtree.com/png-clipart/20230504/original/pngtree-free-vector-big-green-leaf-of-tropical-monstera-plant-isolated-on-png-image_9139719.png" rounded />
+                // <Avatar alt=""  className="dark:bg-gray-200  rounded-full w-9" img={guitarUser}></Avatar>
+
               }
             >
               <Dropdown.Header>
-                <span className="block text-sm">Hi {user.username}!</span>
+                <span className="block text-sm">Hi {user.username} !</span>
                 <span className="block truncate text-sm font-medium">{user.email}</span>
               </Dropdown.Header>
 
-              <Link to='/add-task'>
+              <Link to='/add-task' >
                 <Dropdown.Item> New Task </Dropdown.Item>
               </Link>
               <Link to='/tasks'>
@@ -41,16 +47,20 @@ function NavBar() {
               <Link to='/' onClick={() => { logout() }}>
                 <Dropdown.Item>  Sign Out  </Dropdown.Item>
               </Link>
+       
             </Dropdown>
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse>
-              <Link to='/add-task'>
-                  <Navbar>New Tasks</Navbar>
+              <Link to='/add-task' className="text-gray-800 dark:text-gray-200 ">
+                  <Navbar className="dark:bg-neutral-900">New Tasks</Navbar>
               </Link>
-              <Link to='/tasks'>
-                  <Navbar>Tasks</Navbar>
+              <Link to='/tasks' className="text-gray-800 dark:text-gray-200">
+                  <Navbar className=" dark:bg-neutral-900">Tasks</Navbar>
               </Link>
+              <Flowbite>
+                <DarkThemeToggle></DarkThemeToggle>
+              </Flowbite>
           </Navbar.Collapse>
           </>
         ): ( 
@@ -64,12 +74,15 @@ function NavBar() {
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse>
-          <Link to='/login'>
-             <Navbar>Login</Navbar>
+          <Link to='/login' className="text-gray-800 dark:text-gray-200">
+             <Navbar className=" dark:bg-neutral-900">Login</Navbar>
           </Link>
-          <Link to='/register'>
-             <Navbar>Register</Navbar>
+          <Link to='/register' className="text-gray-800 dark:text-gray-200">
+             <Navbar className=" dark:bg-neutral-900">Register</Navbar>
           </Link>
+          <Flowbite>
+                <DarkThemeToggle></DarkThemeToggle>
+              </Flowbite>
           </Navbar.Collapse>
         </>
         )}
