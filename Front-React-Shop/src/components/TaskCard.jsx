@@ -1,13 +1,16 @@
 // TaskCard.js
 import { useTasks } from '../context/TasksContext';
 import { Link } from 'react-router-dom';
+import { Button, Card } from 'flowbite-react';
 
 function TaskCard({ task }) {
     const { deleteTask } = useTasks()
   return (
-    <div className="w-full md:w-1/2 lg:w-1/5 p-2">
-      <div className="dark:bg-gray-600 dark:text-white border rounded-xl p-4 h-56">
-       <header className='flex justify-between'> 
+    <div className="w-full md:w-1/2 lg:w-1/3 p-2 " >
+
+    
+      <div className="dark:bg-gray-200 dark:text-white border rounded-md p-4 ">
+       <header className='flex justify-between h-11'> 
         <h1 className="text-xl font-bold mb-2 truncate">{task.title}</h1>
         <div className='flex gap-x-2 items-center'>
            <Link to={`/tasks/${task._id}`}>
@@ -27,12 +30,45 @@ function TaskCard({ task }) {
            </button>
         </div>
        </header>
-        <p className="text-sm overflow-auto max-h-24">{task.description}</p>
-        <footer className=''>
-          <p className=''>{new Date(task.date).toLocaleString()}</p>
-        </footer>
+
+        <div className="font-normal text-gray-700 h-40 overflow-auto">
+          <p className="">{task.description}</p>
+        </div>
+
+ 
       </div>
+
+      <footer className='h-20 overflow-auto dark:text-white'>
+        <div className='text-right'> 
+          <p className=''>{new Date(task.date).toLocaleString()}</p>
+        </div>
+      </footer>
     </div>
+
+
+    // <Card className="w-full md:w-1/2 lg:w-1/4 p-2 dark:bg-zinc-800 m-1">
+    //   <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+    //     Noteworthy technology acquisitions 2021
+    //   </h5>
+    //   <p className="font-normal text-gray-700 h-40 dark:text-gray-400 overflow-auto">
+    //     Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+    //     Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+    //     Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+    //     Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+    //     Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+    //     Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+    //   </p>
+    //   <Button>
+    //     Read more
+    //     <svg className="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    //       <path
+    //         fillRule="evenodd"
+    //         d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+    //         clipRule="evenodd"
+    //       />
+    //     </svg>
+    //   </Button>
+    // </Card>
   );
 }
 

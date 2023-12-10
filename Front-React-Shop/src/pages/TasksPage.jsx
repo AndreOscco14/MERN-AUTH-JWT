@@ -12,12 +12,8 @@ function TasksPage() {
     if(tasks.length === 0) return (<h1>No Tasks</h1>)
 
     return (
-    //   <div key={task._id}>
-    //   <h1>{task.title}</h1>
-    //   <h1>{task.description}</h1>
-    // </div>
 
-      <div className='flex flex-wrap mx-4 bg-gray-400 p-5 rounded-xl'>
+      <div className='flex flex-wrap mx-4 dark:bg-neutral-900 p-5 rounded-xl'>
         {
           tasks.map((task) => (
             <TaskCard 
