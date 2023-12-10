@@ -33,7 +33,7 @@ function NavBar() {
               }
             >
               <Dropdown.Header>
-                <span className="block text-sm">Hi {user.username} !</span>
+                <span className="block text-sm">Hi {user.username} &hearts;</span>
                 <span className="block truncate text-sm font-medium">{user.email}</span>
               </Dropdown.Header>
 

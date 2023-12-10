@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useTasks } from '../context/TasksContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
-
+import { Button } from 'flowbite-react';
 
 function TasksFormPage() {
   const {register, handleSubmit, setValue } = useForm()
@@ -32,31 +32,41 @@ function TasksFormPage() {
   })
 
   return (
-    <div className='bg-zinc-800 max-w-md w-full p-10 rounded-md'>
+    <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+          <div className='border-2 dark:bg-neutral-900 max-w-md w-full p-10 rounded-xl'>
       <form onSubmit={onSubmit}>
-        <label htmlFor='title'>Title:</label>
+        <label htmlFor='title' className='dark:text-white'>Title:</label>
         <input 
           type="text" 
           placeholder='Title' 
           {...register("title")} 
-          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
+          className='w-full dark:bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
           autoFocus
         />
-        <label htmlFor='description'>Description:</label>
+        <label htmlFor='description' className='dark:text-white'>Description:</label>
         <textarea 
          rows='3'
          placeholder='Description' 
          {...register("description")}
-         className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'>
+         className='w-full dark:bg-zinc-700 text-white px-4 py-2 rounded-md my-2'>
          </textarea>
          {/* <label htmlFor='date' className='mr-3'>Date:</label>
          <input type='date'
          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
          {...register('date')}>
          </input> */}
-         <button className='bg-gray-700 px-4 py-1 mt-4 rounded-lg'>Save</button>
+         <div className='text-right'>
+          <button className='dark:bg-neutral-700 dark:text-white px-4 py-1 mt-4 rounded-lg border-2 dark:hover:bg-neutral-800'>Save</button>
+         </div>
+
+         {/* <div className="flex flex-wrap gap-2">
+          <Button color="gray">Gray</Button>
+          </div> */}
+
       </form>
     </div>
+    </div>
+
   )
 }
 

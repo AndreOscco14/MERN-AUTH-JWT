@@ -19,25 +19,28 @@ function LoginPage() {
 
   return (
     <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
-       <div className='bg-zinc-800 max-w-md w-full p-10 rounded-md'>
+       <div className='dark:bg-neutral-900 border-2 dark:border-none shadow-2xl dark:text-white max-w-md w-full p-10 rounded-md'>
        { signinErrors.map((error,i) => (
                 <div className='bg-red-500 p-2 text-white my-2'  key={i}>
                     {error}
                 </div>
         ))}
        <form onSubmit={ onSubmit}>
-              <h1 className='text-2xl font-bold'>Login</h1>
+              <h1 className='text-2xl font-bold text-center mb-5'>Login</h1>
                 <input type='email' {...register("email", {required: true})}
-                      className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                      className='w-full dark:bg-neutral-900 dark:text-white px-4 py-2 rounded-md my-2'
                       placeholder='Email'
                 />
                 {errors.email && <p className='text-red-500'>Email is required</p>}
                 <input type='password' {...register("password", {required: true})}
-                      className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                      className='w-full dark:bg-neutral-900 dark:text-white  px-4 py-2 rounded-md my-2'
                       placeholder='password'  
                 />
                 {errors.password && <p className='text-red-500'>Password is required</p>}
-                <button type='submit'>
+                {/* <button type='submit' className='my-3 dark:bg-neutral-700 dark:text-white px-4 py-1 mt-4 rounded-lg border-2 dark:hover:bg-neutral-800'>
+                    Login
+                </button> */}
+                <button type='submit' className='my-3 border-2 text-black p-2 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:text-white dark:border-2 dark:hover:bg-neutral-800'>
                     Login
                 </button>
             </form>
