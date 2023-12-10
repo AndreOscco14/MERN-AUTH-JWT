@@ -7,9 +7,7 @@ function TaskCard({ task }) {
     const { deleteTask } = useTasks()
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 p-2 " >
-
-
-      <div className=" border rounded-md p-4 ">
+      <div className=" border-2 border-gray-400 rounded-md p-4 ">
        <header className='flex justify-between h-11'> 
         <h5 className="text-2xl font-bold mb-2 tracking-tight dark:text-white">{task.title} </h5>
         <div className='flex gap-x-2 items-center'>

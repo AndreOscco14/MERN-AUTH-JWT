@@ -50,7 +50,7 @@ function RegisterPage() {
                 />
                 {errors.password && <p className='text-red-500'>Password is required</p>}
 
-                <button type='submit' className='dark:text-white my-3'>
+                <button type='submit' className='my-3 border-2 text-black p-2 rounded-md hover:border-gray-500  dark:text-white dark:border-2 '>
                     Register
                 </button>
             </form>

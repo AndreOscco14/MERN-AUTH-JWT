@@ -40,7 +40,7 @@ function LoginPage() {
                 {/* <button type='submit' className='my-3 dark:bg-neutral-700 dark:text-white px-4 py-1 mt-4 rounded-lg border-2 dark:hover:bg-neutral-800'>
                     Login
                 </button> */}
-                <button type='submit' className='my-3 border-2 text-black p-2 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:text-white dark:border-2 dark:hover:bg-neutral-800'>
+                <button type='submit' className='my-3 border-2 text-black p-2 rounded-md hover:border-gray-500  dark:text-white dark:border-2 '>
                     Login
                 </button>
             </form>

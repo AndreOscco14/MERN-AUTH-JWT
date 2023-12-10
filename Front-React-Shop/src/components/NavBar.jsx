@@ -24,7 +24,8 @@ function NavBar() {
           <div className="flex md:order-2">
             <Dropdown
               arrowIcon={false}
-              inline
+              inline 
+              className="dark:bg-neutral-800 shadow-xl"
               label={
                 // guitarUser
                 <Avatar alt="User settings" className="mr-2 " img="https://png.pngtree.com/png-clipart/20230504/original/pngtree-free-vector-big-green-leaf-of-tropical-monstera-plant-isolated-on-png-image_9139719.png" rounded />
@@ -32,7 +33,7 @@ function NavBar() {
 
               }
             >
-              <Dropdown.Header>
+              <Dropdown.Header className="">
                 <span className="block text-sm">Hi {user.username} &hearts;</span>
                 <span className="block truncate text-sm font-medium">{user.email}</span>
               </Dropdown.Header>
