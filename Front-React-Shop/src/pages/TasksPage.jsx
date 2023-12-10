@@ -13,7 +13,7 @@ function TasksPage() {
 
     return (
 
-      <div className='flex flex-wrap mx-4 dark:bg-neutral-900 p-5 rounded-xl'>
+      <div className='flex flex-wrap mx-4 dark:bg-neutral-800 p-5 rounded-xl'>
         {
           tasks.map((task) => (
             <TaskCard 

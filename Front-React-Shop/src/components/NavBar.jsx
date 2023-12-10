@@ -15,7 +15,7 @@ function NavBar() {
     <Navbar  className="mb-5 dark:bg-neutral-900">
       <Navbar.Brand href="/" className=''>
         <img  src={guitarUser} className="mr-2 h-12" alt="Flowbite React Logo" />
-        <span className="text-gray-500 self-center whitespace-nowrap dark:text-gray-200 text-xl font-semibold">Flowbite React</span>
+        <span className="text-gray-500 self-center whitespace-nowrap dark:text-gray-200 text-xl font-semibold">Flowbite</span>
       </Navbar.Brand>
 
         {isAuthenticated ? ( 
