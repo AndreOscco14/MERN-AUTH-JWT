@@ -26,13 +26,9 @@ export const register = async (req, res) => {
         })
 
        const userSaved = await newUser.save()
-       const token =  await createAccessToken({id: userSaved._id})
+        const token =  await createAccessToken({id: userSaved._id})
 
-       res.cookie("token", token, {
-        httpOnly: process.env.NODE_ENV !== "development",
-        secure: true,
-        sameSite: "none",
-      });
+       res.cookie('token',token)
 
        res.json({ 
             id: userSaved._id,
@@ -62,13 +58,7 @@ export const login = async (req, res) => {
         }
 
       const token =  await createAccessToken({id: userFound._id})
-
-        res.cookie("token", token, {
-            httpOnly: process.env.NODE_ENV !== "development",
-            secure: true,
-            sameSite: "none",
-        });
-
+       res.cookie('token',token)
        res.json({ 
             id: userFound._id,
             username: userFound.username,
@@ -83,8 +73,6 @@ export const login = async (req, res) => {
 
 export const logout = async (req,res) => {
     res.cookie('token', " ", {
-        httpOnly: true,
-        secure: true,
         expires : new Date(0),
     })
     return res.sendStatus(200)
@@ -107,6 +95,7 @@ export const verify = async (req, res) => {
     const {token} = req.cookies
 
     if(!token) return res.status(401).json({ message: "SIN AUTORIZACION!"})
+
     jwt.verify(token, TOKEN_SECRETO, async (err, user) => {
         if(err) return res.status(401).json({message: "SIN AUTORIZACION!"});
 
