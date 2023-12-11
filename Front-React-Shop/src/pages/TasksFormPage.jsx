@@ -32,7 +32,7 @@ function TasksFormPage() {
   })
 
   return (
-    <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+    <div className='flex h-[calc(100vh-100px)] items-center justify-center mx-7'>
           <div className='border-2 dark:bg-neutral-900 max-w-md w-full p-10 rounded-xl shadow-2xl'>
       <form onSubmit={onSubmit}>
         <label htmlFor='title' className='dark:text-white'>Title:</label>

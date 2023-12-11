@@ -23,7 +23,7 @@ function RegisterPage() {
         });
 
     return (
-        <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+        <div className='flex h-[calc(100vh-100px)] items-center justify-center mx-7'>
         <div className='dark:bg-neutral-900 max-w-md p-10 rounded-md border-2 dark:border-none shadow-2xl'>
         { registerErrors.map((error,i) => (
                 <div className='bg-red-500 p-2 text-white' key={i}>

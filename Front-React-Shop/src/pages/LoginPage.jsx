@@ -18,7 +18,8 @@ function LoginPage() {
   }, [isAuthenticated]);
 
   return (
-    <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+    <div className='flex h-[calc(100vh-100px)] items-center justify-center mx-7'>
+    {/* <div className='mx-5'> */}
        <div className='dark:bg-neutral-900 border-2 dark:border-none shadow-2xl dark:text-white max-w-md w-full p-10 rounded-md'>
        { signinErrors.map((error,i) => (
                 <div className='bg-red-500 p-2 text-white my-2'  key={i}>
@@ -48,7 +49,8 @@ function LoginPage() {
               Don't have an account? <Link to="/register" className='text-sky-500'>Sign up</Link>
             </p>
        </div>
-    </div>
+       </div>
+    // </div>
   )
 }
 
