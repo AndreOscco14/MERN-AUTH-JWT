@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import authRouter from './routes/auth.routes.js'
 import tasksRouter from './routes/tasks.routes.js'
-import { FRONTEND_URL } from './config.js';
+import { FRONTEND_URL_LOC } from './config.js';
 
 const app = express()
 
@@ -18,7 +18,7 @@ app.use(cors({
     // origin: process.env.FRONTED_URL,
     // origin: allowedOrigins,
     credentials: true,
-    origin: FRONTEND_URL,
+    origin: FRONTEND_URL_LOC,
 }))
 app.use(morgan('dev'));
 app.use(express.json())
