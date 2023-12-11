@@ -4,7 +4,7 @@ import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs'
 import {createAccessToken}  from '../libs/jwt.js'
 import jwt from 'jsonwebtoken'
-import {TOKEN_SECRET} from '../config.js'
+import {TOKEN_SECRETO} from '../config.js'
 
 export const register = async (req, res) => { 
     const {email , password, username} = req.body
@@ -95,7 +95,7 @@ export const verify = async (req, res) => {
     const {token} = req.cookies
 
     if(!token) return res.status(401).json({ message: "SIN AUTORIZACION!"})
-    jwt.verify(token, TOKEN_SECRET, async (err, user) => {
+    jwt.verify(token, TOKEN_SECRETO, async (err, user) => {
         if(err) return res.status(401).json({message: "SIN AUTORIZACION!"});
 
       const userFound = await User.findById(user.id)
