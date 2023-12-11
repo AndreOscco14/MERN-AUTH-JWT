@@ -14,7 +14,7 @@ app.use(cors({
 app.use(morgan('dev'));
 app.use(express.json())
 app.use(cookieParser())
-
+app.get("/", (req, res) => { res.send(`${process.env.TITLE}`)})
 app.use("/api",authRouter)
 app.use("/api",tasksRouter)
 
